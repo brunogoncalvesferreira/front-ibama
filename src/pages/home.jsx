@@ -79,7 +79,7 @@ export function Home() {
         </p>
 
         <div>
-          <form className="flex flex-col space-y-5 md:w-[30vw] w-full">
+          <form className="flex flex-col space-y-5 md:w-[30vw] w-full px-4">
             <div className="border-dashed border-2 border-gray-400/20 rounded-md p-4 text-center">
               <input
                 type="file"
