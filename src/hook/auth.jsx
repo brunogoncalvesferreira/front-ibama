@@ -9,14 +9,18 @@ export function AuthContextProvider({ children }) {
 
   async function signIn({ email, password }) {
     try {
-      const response = await api.post('/sessions', { email, password })
-      const { user, token } = response.data
+      const response = await api.post(
+        '/sessions',
+        { email, password },
+        {
+          withCredentials: true,
+        },
+      )
+      const { user } = response.data
 
       localStorage.setItem('@ibama:user', JSON.stringify(user))
-      localStorage.setItem('@ibama:token', token)
 
-      api.defaults.headers.common.Authorization = `Bearer ${token}`
-      setData({ user, token })
+      setData({ user })
     } catch (error) {
       if (error) {
         toast.error(error.response.data.message)
@@ -28,19 +32,13 @@ export function AuthContextProvider({ children }) {
 
   function signOut() {
     localStorage.removeItem('@ibama:user')
-    localStorage.removeItem('@ibama:token')
-
     setData({})
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('@ibama:token')
     const user = localStorage.getItem('@ibama:user')
-
-    if (token && user) {
-      api.defaults.headers.common.Authorization = `Bearer ${token}`
+    if (user) {
       setData({
-        token,
         user: JSON.parse(user),
       })
     }
