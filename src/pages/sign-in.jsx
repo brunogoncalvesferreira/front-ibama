@@ -43,7 +43,7 @@ export function SignIn() {
   return (
     <div className="flex items-center justify-center h-screen relative">
       <img
-        className="w-28 absolute bottom-0 left-0 p-4 md:m-0 mb-3"
+        className="w-32 absolute top-0 left-0 p-4 md:m-0 mb-3"
         src={logo}
         alt="Logo da empresa Vortice Corporation"
       />
