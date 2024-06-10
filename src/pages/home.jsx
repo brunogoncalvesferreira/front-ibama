@@ -71,7 +71,7 @@ export function Home() {
         </button>
       </div>
       <div>
-        <h1 className="md:text-4xl text-xl text-gray-700 text-center font-bold">
+        <h1 className="md:text-4xl text-xl text-gray-700 text-center font-bold mb-3">
           Upload de imagens
         </h1>
 
