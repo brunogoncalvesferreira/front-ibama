@@ -1,6 +1,6 @@
 import logo from '../assets/logo.svg'
 
-import { LogOut } from 'lucide-react'
+import { LogOut, Upload } from 'lucide-react'
 import { useAuth } from '../hook/auth'
 import { useState } from 'react'
 import { toast } from 'sonner'
@@ -74,19 +74,23 @@ export function Home() {
         <h1 className="md:text-4xl text-xl text-gray-700 text-center font-bold">
           Upload de imagens
         </h1>
-        <p className="my-3 text-sm text-gray-500 text-center">
-          Selecione uma imagem para fazer upload.
-        </p>
 
-        <div>
+        <div className="relative">
           <form className="flex flex-col space-y-5 md:w-[30vw] w-full px-4">
-            <div className="border-dashed border-2 border-gray-400/20 rounded-md p-4 text-center">
+            <div className="flex flex-col items-center justify-center border-dashed h-48 border-2 border-gray-400/20 rounded-md p-4 text-center">
               <input
                 type="file"
                 multiple
-                className="w-full h-full"
+                className="w-full h-full opacity-0"
                 onChange={handleFileChange}
               />
+
+              <div className="flex flex-col gap-3 items-center justify-center absolute -z-20">
+                <Upload className="w-8 h-8 text-gray-400" />
+                <p className="text-gray-400">
+                  Clique para selecionar uma imagem
+                </p>
+              </div>
             </div>
 
             <button
