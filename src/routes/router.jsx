@@ -7,6 +7,8 @@ import { api } from '../api/axios'
 export function Router() {
   const { user, signOut } = useAuth()
 
+  console.log(user)
+
   useEffect(() => {
     api.get('/users/validated').catch((error) => {
       if (error.response?.status === 401) {
